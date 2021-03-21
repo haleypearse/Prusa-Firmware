@@ -154,7 +154,7 @@
 // this value is litlebit higher that real limit, because ambient termistor is on the board and is temperated from it,
 // temperature inside the case is around 31C for ambient temperature 25C, when the printer is powered on long time and idle
 // the real limit is 15C (same as MINTEMP limit), this is because 15C is end of scale for both used thermistors (bed, heater)
-#define MINTEMP_MINAMBIENT      10
+#define MINTEMP_MINAMBIENT      5
 #define MINTEMP_MINAMBIENT_RAW  1002
 
 #define DEBUG_DCODE3
@@ -285,10 +285,10 @@
  *------------------------------------*/
 
 // Mintemps
-//#define HEATER_0_MINTEMP 10
+#define HEATER_0_MINTEMP 5
 #define HEATER_1_MINTEMP 5
 #define HEATER_2_MINTEMP 5
-#define HEATER_0_MINTEMP 21
+//#define HEATER_0_MINTEMP 21
 //#define HEATER_1_MINTEMP 21
 //#define HEATER_2_MINTEMP 21
 #define HEATER_MINTEMP_DELAY 15000                // [ms] ! if changed, check maximal allowed value @ ShortTimer
@@ -306,16 +306,16 @@
 #define AMBIENT_MINTEMP -30
 
 // Maxtemps
-//#if defined(E3D_PT100_EXTRUDER_WITH_AMP) || defined(E3D_PT100_EXTRUDER_NO_AMP)
-//#define HEATER_0_MAXTEMP 410
-//#else
-//#define HEATER_0_MAXTEMP 305
-//#endif
+#if defined(E3D_PT100_EXTRUDER_WITH_AMP) || defined(E3D_PT100_EXTRUDER_NO_AMP)
+#define HEATER_0_MAXTEMP 410
+#else
+#define HEATER_0_MAXTEMP 305
+#endif
 //#define HEATER_1_MAXTEMP 305
 //#define HEATER_2_MAXTEMP 305
-#define HEATER_0_MAXTEMP 500
-#define HEATER_1_MAXTEMP 500
-#define HEATER_2_MAXTEMP 500
+//#define HEATER_0_MAXTEMP 500
+//#define HEATER_1_MAXTEMP 500
+//#define HEATER_2_MAXTEMP 500
 #define BED_MAXTEMP 125
 #define AMBIENT_MAXTEMP 100
 
@@ -329,16 +329,16 @@
 //#define  DEFAULT_Kp 40.925
 //#define  DEFAULT_Ki 4.875
 //#define  DEFAULT_Kd 86.085
-//#define  DEFAULT_Kp 16.13
-//#define  DEFAULT_Ki 1.1625
-//#define  DEFAULT_Kd 56.23
-#define DEFAULT_Kp 14.0
-#define DEFAULT_Ki 0.5
-#define DEFAULT_Kd 125.0
+#define  DEFAULT_Kp 16.13
+#define  DEFAULT_Ki 1.1625
+#define  DEFAULT_Kd 56.23
+//#define DEFAULT_Kp 14.0
+//#define DEFAULT_Ki 0.5
+//#define DEFAULT_Kd 125.0
 #endif
 
 // Extrude mintemp
-#define EXTRUDE_MINTEMP 150
+#define EXTRUDE_MINTEMP 100
 
 // Extruder cooling fans
 #define EXTRUDER_0_AUTO_FAN_PIN   8
@@ -358,7 +358,7 @@
 // Load filament commands
 #define LOAD_FILAMENT_0 "M83"
 #define LOAD_FILAMENT_1 "G1 E70 F400"
-#define LOAD_FILAMENT_2 "G1 E30 F100"
+#define LOAD_FILAMENT_2 "G1 E40 F100"
 
 // Unload filament commands
 #define UNLOAD_FILAMENT_0 "M83"
@@ -576,16 +576,17 @@
 // 148 is E3D Pt100 with 4k7 pullup and no PT100 Amplifier on a MiniRambo 1.3a
 // 247 is Pt100 with 4k7 pullup and PT100 Amplifier
 // 110 is Pt100 with 1k pullup (non standard)
+// 800 is slice 450C thermistor
 
 #if defined(E3D_PT100_EXTRUDER_WITH_AMP)
 #define TEMP_SENSOR_0 247
 #elif defined(E3D_PT100_EXTRUDER_NO_AMP)
 #define TEMP_SENSOR_0 148
 #else
-//#define TEMP_SENSOR_0 5
-#define TEMP_SENSOR_0 66
-#define TEMP_SENSOR_1 66
-#define TEMP_SENSOR_2 66
+#define TEMP_SENSOR_0 800
+//#define TEMP_SENSOR_0 66
+//#define TEMP_SENSOR_1 66
+//#define TEMP_SENSOR_2 66
 #endif
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
