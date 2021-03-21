@@ -338,7 +338,7 @@
 #endif
 
 // Extrude mintemp
-#define EXTRUDE_MINTEMP 100
+#define EXTRUDE_MINTEMP 100 // Just high enough to not extrude accidentally when cool
 
 // Extruder cooling fans
 #define EXTRUDER_0_AUTO_FAN_PIN   8
@@ -358,7 +358,7 @@
 // Load filament commands
 #define LOAD_FILAMENT_0 "M83"
 #define LOAD_FILAMENT_1 "G1 E70 F400"
-#define LOAD_FILAMENT_2 "G1 E40 F100"
+#define LOAD_FILAMENT_2 "G1 E30 F100"
 
 // Unload filament commands
 #define UNLOAD_FILAMENT_0 "M83"
@@ -583,7 +583,7 @@
 #elif defined(E3D_PT100_EXTRUDER_NO_AMP)
 #define TEMP_SENSOR_0 148
 #else
-#define TEMP_SENSOR_0 800
+#define TEMP_SENSOR_0 5 // 800
 //#define TEMP_SENSOR_0 66
 //#define TEMP_SENSOR_1 66
 //#define TEMP_SENSOR_2 66
