@@ -344,8 +344,8 @@
 #define EXTRUDER_0_AUTO_FAN_PIN   8
 #define EXTRUDER_1_AUTO_FAN_PIN   -1
 #define EXTRUDER_2_AUTO_FAN_PIN   -1
-#define EXTRUDER_AUTO_FAN_TEMPERATURE 60
-#define EXTRUDER_AUTO_FAN_SPEED   61 // 255  // == full speed
+#define EXTRUDER_AUTO_FAN_TEMPERATURE 80
+#define EXTRUDER_AUTO_FAN_SPEED   191 // 255  // == full speed
 #define EXTRUDER_ALTFAN_DETECT
 #define EXTRUDER_ALTFAN_SPEED_SILENT 128
 
@@ -583,7 +583,8 @@
 #elif defined(E3D_PT100_EXTRUDER_NO_AMP)
 #define TEMP_SENSOR_0 148
 #else
-#define TEMP_SENSOR_0 5 // 800
+// 500C slice thermistor
+#define TEMP_SENSOR_0 800 // 5
 //#define TEMP_SENSOR_0 66
 //#define TEMP_SENSOR_1 66
 //#define TEMP_SENSOR_2 66
